@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra</title>
+    <link rel="stylesheet" href="styles_compras.css">
+</head>
+<body>
+    <div class="container">
+        <div class="finalizar-compra">
+            <div class="produtos">
+                <h3>PRODUTOS</h3>
+                <div id="product-list"></div>
+            </div>
+            <div class="detalhes-pagamento">
+                <h3>PAGAMENTO</h3>
+                <input type="text" id="payment-method" placeholder="Ex: Crédito, Débito, Pix e Dinheiro">
+                
+                <h3>TIPO DE VENDA</h3>
+                <select id="sale-type">
+                    <option value="Loja Física">Loja Física</option>
+                    <option value="Delivery">Delivery</option>
+                </select>
+                
+                <h3>DESCONTO</h3>
+                <input type="number" id="discount" placeholder="Digite % ou valor em R$" oninput="calculateTotal()">
+            </div>
+            <div class="valor-total">
+                <h3>VALOR TOTAL</h3>
+                <p id="total-amount">R$ 0.00</p>
+            </div>
+            <div class="botoes">
+                <button class="voltar" onclick="voltarParaTelaInicial()">VOLTAR</button>
+                <button class="finalizar" onclick="finalizarCompra()">FINALIZAR COMPRA</button>
+            </div>
+        </div>
+    </div>
+    <script src="script_compras.js"></script>
+    <script>
+        function voltarParaTelaInicial() {
+            window.location.href = "tela_inicial.html";
+        }
+    </script>
+</body>
+</html>

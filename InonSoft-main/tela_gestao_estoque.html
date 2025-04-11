@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Estoque</title>
+    <link rel="stylesheet" href="estoque.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="img/InonSoft-Logo.png" alt="InonSoft Logo">
+            </div>
+            <nav class="menu">
+                <a href="tela_inicial.html" class="menu-item"><i class="fas fa-home"></i> Tela Inicial</a>
+                <a href="tela_relatorios.html" class="menu-item"><i class="fas fa-chart-line"></i> Relatórios</a>
+                <a href="" class="menu-item"><i class="fas fa-box"></i> Gestão de Estoque</a>
+                <a href="tela_compras.html" class="menu-item"><i class="fas fa-shopping-cart"></i> Vendas</a>
+                <a href="#" class="menu-item"><i class="fab fa-whatsapp"></i> Whatsapp</a>
+                <a href="#" class="menu-item"><i class="fas fa-dollar-sign"></i> Financeiro</a>
+            </nav>
+            <div class="account-options">
+                <a href="conta.html" class="menu-item"><i class="fas fa-user"></i> Conta</a>
+                <a href="#" class="menu-item"><i class="fas fa-question-circle"></i> Suporte</a>
+                <a href="tela_inicial.html" class="menu-item"><i class="fas fa-sign-out-alt"></i> Voltar</a>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <div class="header">
+                <img src="img/user.jpg" alt="Admin" class="user-img">
+                <h2>Emily Zaponi</h2>
+                <span>Administrador</span>
+            </div>
+
+            <div class="actions">
+                <button class="add-button" onclick="addEstoque()"><i class="fas fa-plus"></i> Adicionar</button>
+                <input type="search" placeholder="Pesquisar Produto" oninput="searchEstoque(this.value)">
+            </div>
+
+            <div class="table-section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código de Entrada</th>
+                            <th>Quantidade</th>
+                            <th>Valor Unitário</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="estoque-tabela-body">
+                        <tr>
+                            <td>001</td>
+                            <td>10</td>
+                            <td>R$50.00</td>
+                            <td>
+                                <button class="edit-button" onclick="editSelectedEstoque()"><i class="fas fa-edit"></i> Editar</button>
+                                <button class="remove-button" onclick="removeSelectedEstoque()"><i class="fas fa-trash"></i> Remover</button>
+                            </td>
+                        </tr>
+                        <!-- Adicione mais linhas conforme necessário -->
+                    </tbody>
+                </table>
+
+                <div id="modalAddProduct" class="modal">
+                    <div class="modal-content">
+                        <span class="close-btn" onclick="closeModal()">&times;</span>
+                        <h2>Adicionar Produto</h2>
+                        <label for="productCode">Código do Produto:</label>
+                        <input type="text" id="productCode" placeholder="Digite o código do produto">
+                
+                        <label for="productQuantity">Quantidade:</label>
+                        <input type="number" id="productQuantity" placeholder="Digite a quantidade">
+                
+                        <label for="productPrice">Valor Unitário:</label>
+                        <input type="number" id="productPrice" step="0.01" placeholder="Digite o valor unitário">
+                
+                        <button onclick="confirmAddProduct()">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="estoque.js"></script>
+</body>
+</html>
